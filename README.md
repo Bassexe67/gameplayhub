@@ -1,2 +1,2 @@
-# gameplayhub
-un sito che parla di video
+# Gameplayhub
+se sei un appassionato di giochi sei nel posto giusto!
