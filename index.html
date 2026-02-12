@@ -150,6 +150,44 @@
             opacity: 0.9;
         }
 
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ddd;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: #667eea;
+        }
+
+        .tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
@@ -162,6 +200,15 @@
             .container {
                 padding: 20px 10px;
             }
+
+            .tabs {
+                gap: 5px;
+            }
+
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -172,17 +219,24 @@
     </header>
 
     <div class="container">
-        <div class="intro">
-            <h2>Benvenuto su GamePlayHub</h2>
-            <p>
-                Scopri i giochi più entusiasmanti e innovativi del 2025-2026. 
-                Qui troverai una selezione dei migliori titoli che stanno conquistando 
-                il cuore dei gamer di tutto il mondo, da avventure épiche a esperienze 
-                immersive che spingono i limiti della tecnologia di gioco.
-            </p>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('games', event)">🎮 Giochi Generali</button>
+            <button class="tab-btn" onclick="showTab('sports', event)">⚽ Giochi Sportivi</button>
         </div>
 
-        <div class="games-grid">
+        <!-- TAB 1: GIOCHI GENERALI -->
+        <div id="games" class="tab-content active">
+            <div class="intro">
+                <h2>Benvenuto su GamePlayHub</h2>
+                <p>
+                    Scopri i giochi più entusiasmanti e innovativi del 2025-2026. 
+                    Qui troverai una selezione dei migliori titoli che stanno conquistando 
+                    il cuore dei gamer di tutto il mondo, da avventure épiche a esperienze 
+                    immersive che spingono i limiti della tecnologia di gioco.
+                </p>
+            </div>
+
+            <div class="games-grid">
             <!-- Gioco 1 -->
             <div class="game-card">
                 <img src="images/black-myth-wukong.jpg" alt="Black Myth: Wukong" class="game-image">
@@ -309,10 +363,172 @@
                 </div>
             </div>
         </div>
+        </div>
+        <!-- FINE TAB 1 -->
+
+        <!-- TAB 2: GIOCHI SPORTIVI -->
+        <div id="sports" class="tab-content">
+            <div class="intro">
+                <h2>I Migliori Giochi Sportivi del Momento</h2>
+                <p>
+                    Tuffati nel mondo dello sport virtuale! Qui troverai i giochi sportivi più emozionanti 
+                    e realistici che ti permettono di rivivere l'emozione delle competizioni mondiali. 
+                    Dalla simulazione calcistica ai giochi di basket, tennis e molto altro ancora.
+                </p>
+            </div>
+
+            <div class="games-grid">
+                <!-- Gioco 1 Sportivo -->
+                <div class="game-card">
+                    <img src="images/fc-25.jpg" alt="EA Sports FC 25" class="game-image" onerror="this.src='https://via.placeholder.com/300x400?text=FC+25'">
+                    <div class="game-header">
+                        <h3>EA Sports FC 25</h3>
+                        <span class="game-year">2024</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-genre">Calcio Simulazione</span>
+                        <p>
+                            Il miglior gioco di calcio della generazione. Con una grafica straordinaria, 
+                            modalità di gioco ricche e una community enorme, EA Sports FC 25 è il re indiscusso 
+                            dei simulatori calcistici.
+                        </p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">9.4/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gioco 2 Sportivo -->
+                <div class="game-card">
+                    <img src="images/nba-2k25.jpg" alt="NBA 2K25" class="game-image" onerror="this.src='https://via.placeholder.com/300x400?text=NBA+2K25'">
+                    <div class="game-header">
+                        <h3>NBA 2K25</h3>
+                        <span class="game-year">2024</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-genre">Basket Simulazione</span>
+                        <p>
+                            L'esperienza di gioco di basket più realistica in assoluto. Con licenze ufficiali NBA, 
+                            molteplici modalità di gioco e un gameplay fluido, NBA 2K25 è immancabile per gli amanti 
+                            della pallacanestro.
+                        </p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">9.1/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gioco 3 Sportivo -->
+                <div class="game-card">
+                    <img src="images/madden-25.jpg" alt="Madden NFL 25" class="game-image" onerror="this.src='https://via.placeholder.com/300x400?text=Madden+NFL+25'">
+                    <div class="game-header">
+                        <h3>Madden NFL 25</h3>
+                        <span class="game-year">2024</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-genre">Football Americano</span>
+                        <p>
+                            Il simulatore di football americano supremo. Con il gameplay più realistico e competitivo, 
+                            modalità carriera immersive e una community vivace, Madden NFL 25 offre ore di puro intrattenimento.
+                        </p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">8.9/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gioco 4 Sportivo -->
+                <div class="game-card">
+                    <img src="images/f1-24.jpg" alt="F1 24" class="game-image" onerror="this.src='https://via.placeholder.com/300x400?text=F1+24'">
+                    <div class="game-header">
+                        <h3>F1 24</h3>
+                        <span class="game-year">2024</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-genre">Corse Formula 1</span>
+                        <p>
+                            Vivi l'esperienza dei Grandi Premi mondiali con il simulatore ufficiale Formula 1. 
+                            Gara su tutti i circuiti autentici con scuderie e piloti reali, e personalizza la tua 
+                            esperienza di guida.
+                        </p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">9.3/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gioco 5 Sportivo -->
+                <div class="game-card">
+                    <img src="images/wrc-14.jpg" alt="WRC 14" class="game-image" onerror="this.src='https://via.placeholder.com/300x400?text=WRC+14'">
+                    <div class="game-header">
+                        <h3>Campionato Mondiale Rally 14</h3>
+                        <span class="game-year">2024</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-genre">Corse Rally</span>
+                        <p>
+                            Il simulatore di rally ufficiale. Con tracciati fedeli dal mondo intero, 
+                            condizioni meteo dinamiche e una fisica di guida impeccabile, WRC 14 è perfetto 
+                            per chi ama le corse su strade non asfaltate.
+                        </p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">8.7/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gioco 6 Sportivo -->
+                <div class="game-card">
+                    <img src="images/nhl-25.jpg" alt="NHL 25" class="game-image" onerror="this.src='https://via.placeholder.com/300x400?text=NHL+25'">
+                    <div class="game-header">
+                        <h3>NHL 25</h3>
+                        <span class="game-year">2024</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-genre">Hockey su Ghiaccio</span>
+                        <p>
+                            Entra nel mondo del hockey professionistico con il simulatore NHL ufficiale. 
+                            Vivi l'adrenalina delle partite intense, costruisci il tuo team e competi 
+                            contro altri giocatori online.
+                        </p>
+                        <div class="game-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">8.8/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINE TAB 2 -->
     </div>
 
     <footer>
         <p>&copy; 2025 GamePlayHub. Il tuo portale per i migliori giochi del momento.</p>
     </footer>
+
+    <script>
+        function showTab(tabName, event) {
+            event.preventDefault();
+            
+            // Nascondi tutti i tab content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Rimuovi la classe active da tutti i bottoni
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Mostra il tab cliccato
+            document.getElementById(tabName).classList.add('active');
+            
+            // Aggiungi la classe active al bottone cliccato
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
